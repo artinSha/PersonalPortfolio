@@ -1,0 +1,32 @@
+export const projects = [
+  {
+    id: 'subway-portfolio',
+    title: 'Subway Portfolio',
+    description: 'This very site — a 3D subway station built with React and Three.js where each poster is a project.',
+    image: '/assets/projects/placeholder.svg',
+    github: null,
+    live: null,
+    tags: ['React', 'Three.js', 'R3F'],
+    wall: 'left',
+  },
+  {
+    id: 'project-two',
+    title: 'Project Two',
+    description: 'Replace this with your second project description.',
+    image: '/assets/projects/placeholder.svg',
+    github: null,
+    live: null,
+    tags: ['React', 'Node.js'],
+    wall: 'right',
+  },
+  {
+    id: 'project-three',
+    title: 'Project Three',
+    description: 'Replace this with your third project description.',
+    image: '/assets/projects/placeholder.svg',
+    github: null,
+    live: null,
+    tags: ['Python', 'FastAPI'],
+    wall: 'left',
+  },
+]

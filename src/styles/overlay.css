@@ -1,0 +1,132 @@
+/* ── Intro Screen ───────────────────────────────── */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 0.1s linear;
+}
+
+.intro-screen__content {
+  text-align: center;
+  user-select: none;
+}
+
+.intro-screen__sub {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 0.5rem;
+}
+
+.intro-screen__name {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #f0f0e8;
+  text-shadow: 0 0 40px rgba(255, 232, 176, 0.4);
+}
+
+.intro-screen__hint {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #666;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+/* ── Project Overlay ────────────────────────────── */
+.project-overlay {
+  width: 340px;
+  pointer-events: none;
+}
+
+.project-overlay__inner {
+  background: rgba(8, 8, 14, 0.92);
+  border: 1px solid rgba(255, 232, 176, 0.2);
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.project-overlay__title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #ffe8b0;
+  margin-bottom: 0.75rem;
+}
+
+.project-overlay__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-overlay__tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(255, 232, 176, 0.3);
+  color: #aaa;
+}
+
+.project-overlay__desc {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #c0c0c0;
+  margin-bottom: 1.25rem;
+}
+
+.project-overlay__links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-overlay__link {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(255, 232, 176, 0.4);
+  color: #ffe8b0;
+  transition: background 0.2s;
+}
+
+.project-overlay__link:hover {
+  background: rgba(255, 232, 176, 0.1);
+}
+
+.project-overlay__link--live {
+  background: rgba(255, 232, 176, 0.08);
+}
+
+/* ── Loading Screen ─────────────────────────────── */
+.loading-screen {
+  width: 200px;
+  text-align: center;
+}
+
+.loading-screen__bar {
+  height: 2px;
+  background: #ffe8b0;
+  transition: width 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.loading-screen__text {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #666;
+}

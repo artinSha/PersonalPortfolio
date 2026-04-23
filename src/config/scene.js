@@ -1,0 +1,22 @@
+export const SCENE = {
+  TUNNEL_WIDTH: 6,
+  TUNNEL_HEIGHT: 4,
+  SEGMENT_LENGTH: 12,
+  BUFFER_START: 8,
+  BUFFER_END: 6,
+  CAMERA_Y: 1.7,
+  CAMERA_FOV: 75,
+  POSTER_WIDTH: 2.2,
+  POSTER_HEIGHT: 3.0,
+  POSTER_Y: 1.8,
+  POSTER_WALL_OFFSET: 0.05,
+  // Scroll phase ratios — must sum to 1.0
+  PHASE_TRAVEL: 0.40,
+  PHASE_ROTATE_IN: 0.20,
+  PHASE_HOLD: 0.15,
+  PHASE_ROTATE_OUT: 0.20,
+  PHASE_PAUSE: 0.05,
+  // Per-frame lerp factors
+  LERP_POSITION: 0.08,
+  LERP_ROTATION: 0.06,
+}
