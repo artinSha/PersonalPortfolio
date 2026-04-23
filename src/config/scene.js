@@ -11,10 +11,10 @@ export const SCENE = {
   POSTER_Y: 1.8,
   POSTER_WALL_OFFSET: 0.05,
   // Scroll phase ratios — must sum to 1.0
-  PHASE_TRAVEL: 0.40,
-  PHASE_ROTATE_IN: 0.20,
-  PHASE_HOLD: 0.15,
-  PHASE_ROTATE_OUT: 0.20,
+  PHASE_TRAVEL: 0.30,
+  PHASE_ROTATE_IN: 0.15,
+  PHASE_HOLD: 0.35,
+  PHASE_ROTATE_OUT: 0.15,
   PHASE_PAUSE: 0.05,
   // Per-frame lerp factors
   LERP_POSITION: 0.08,
