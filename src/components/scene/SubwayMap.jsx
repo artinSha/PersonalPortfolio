@@ -9,8 +9,8 @@ const FRAME  = 0.06
 
 // Right wall, in the entry buffer before any project posters
 const WALL_X = SCENE.TUNNEL_WIDTH / 2 - SCENE.POSTER_WALL_OFFSET
-const MAP_Z  = -4
-const MAP_Y  = SCENE.CAMERA_Y + 0.15   // just above eye level center
+const MAP_Z  = -2.5
+const MAP_Y  = SCENE.CAMERA_Y + 0.4   // just above eye level center
 
 function MapMesh() {
   const texture = useTexture('/assets/subway-map.png')
