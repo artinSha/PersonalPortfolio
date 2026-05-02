@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { CameraRig } from './CameraRig'
 import { Hallway } from './environment/Hallway'
 import { IntroSign } from './environment/IntroSign'
+import { Staircase } from './environment/Staircase'
 import { PosterWall } from './posters/PosterWall'
 import { SubwayMap } from './SubwayMap'
 import { projects } from '@/data/projects'
@@ -18,6 +19,7 @@ export function Scene() {
     <>
       <CameraRig onActiveProject={setActiveProjectIndex} />
       <Hallway length={tunnelLength} />
+      <Staircase />
       <IntroSign />
       <PosterWall projects={projects} activeProjectIndex={activeProjectIndex} />
       <SubwayMap />

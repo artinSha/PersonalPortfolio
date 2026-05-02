@@ -5,6 +5,7 @@ export function buildKeyframes(projects, SCENE) {
     TUNNEL_WIDTH, CAMERA_Y,
     SEGMENT_LENGTH, BUFFER_START, BUFFER_END,
     PHASE_TRAVEL, PHASE_ROTATE_IN, PHASE_HOLD, PHASE_ROTATE_OUT,
+    STAIR_COUNT = 0, STAIR_DEPTH = 0, STAIR_HEIGHT = 0, STAIR_SCROLL = 0,
   } = SCENE
 
   const totalZ = BUFFER_START + projects.length * SEGMENT_LENGTH + BUFFER_END
@@ -13,7 +14,22 @@ export function buildKeyframes(projects, SCENE) {
   // Identity quaternion = camera looks in -Z direction (Three.js default / hallway forward)
   const forwardQuat = new THREE.Quaternion()
 
-  let prevRotOutEnd = 0
+  // Staircase intro — camera ascends from halfway-up position to tunnel entrance
+  if (STAIR_SCROLL > 0) {
+    keyframes.push({
+      type: 'staircase',
+      scrollStart: 0,
+      scrollEnd: STAIR_SCROLL,
+      startY: CAMERA_Y - STAIR_COUNT * STAIR_HEIGHT * 0.5,
+      endY:   CAMERA_Y,
+      startZ: STAIR_COUNT * STAIR_DEPTH * 0.5,
+      endZ:   0,
+    })
+  }
+
+  // Project keyframes are remapped into [STAIR_SCROLL, 1.0]
+  const projectScale = 1.0 - STAIR_SCROLL
+  let prevRotOutEnd = STAIR_SCROLL
   let prevCameraZ = 0
 
   projects.forEach((project, i) => {
@@ -22,8 +38,8 @@ export function buildKeyframes(projects, SCENE) {
     // Camera stops slightly before the poster's Z so the poster is ahead-and-to-the-side
     const stopZ = posterZ + SEGMENT_LENGTH * 0.25
 
-    const segStartNorm = segStartZ / totalZ
-    const segEndNorm = (segStartZ + SEGMENT_LENGTH) / totalZ
+    const segStartNorm = STAIR_SCROLL + (segStartZ / totalZ) * projectScale
+    const segEndNorm   = STAIR_SCROLL + ((segStartZ + SEGMENT_LENGTH) / totalZ) * projectScale
     const segLen = segEndNorm - segStartNorm
 
     const travelEnd  = segStartNorm + segLen * PHASE_TRAVEL
@@ -109,6 +125,11 @@ export function evaluateCamera(scrollOffset, keyframes) {
   let activeProjectIndex = null
 
   switch (kf.type) {
+    case 'staircase':
+      position.set(0, lerp(kf.startY, kf.endY, t), lerp(kf.startZ, kf.endZ, t))
+      quaternion.identity()
+      break
+
     case 'travel':
       position.set(0, kf.cameraY, lerp(kf.cameraZStart, kf.cameraZEnd, t))
       quaternion.copy(kf.forwardQuat)

@@ -19,4 +19,9 @@ export const SCENE = {
   // Per-frame lerp factors
   LERP_POSITION: 0.08,
   LERP_ROTATION: 0.06,
+  // Staircase intro
+  STAIR_COUNT:  8,
+  STAIR_DEPTH:  0.4,
+  STAIR_HEIGHT: 0.3,
+  STAIR_SCROLL: 0.12,
 }
