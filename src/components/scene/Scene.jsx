@@ -1,23 +1,13 @@
 import { useState, useMemo } from 'react'
-import { useFrame } from '@react-three/fiber'
 import { CameraRig } from './CameraRig'
 import { Hallway } from './environment/Hallway'
+import { IntroSign } from './environment/IntroSign'
 import { PosterWall } from './posters/PosterWall'
+import { SubwayMap } from './SubwayMap'
 import { projects } from '@/data/projects'
 import { SCENE } from '@/config/scene'
-import { scrollState } from '@/hooks/useWindowScroll'
 
-function IntroFader({ introRef }) {
-  useFrame(() => {
-    if (!introRef?.current) return
-    const opacity = Math.max(0, 1 - scrollState.offset * 10)
-    introRef.current.style.opacity = opacity
-    introRef.current.style.pointerEvents = opacity < 0.05 ? 'none' : 'auto'
-  })
-  return null
-}
-
-export function Scene({ introRef }) {
+export function Scene() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(null)
   const tunnelLength = useMemo(
     () => SCENE.BUFFER_START + projects.length * SCENE.SEGMENT_LENGTH + SCENE.BUFFER_END,
@@ -27,9 +17,10 @@ export function Scene({ introRef }) {
   return (
     <>
       <CameraRig onActiveProject={setActiveProjectIndex} />
-      <IntroFader introRef={introRef} />
       <Hallway length={tunnelLength} />
+      <IntroSign />
       <PosterWall projects={projects} activeProjectIndex={activeProjectIndex} />
+      <SubwayMap />
     </>
   )
 }

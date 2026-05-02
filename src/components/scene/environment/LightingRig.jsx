@@ -1,32 +1,32 @@
 import { SCENE } from '@/config/scene'
 
 const STRIP_SPACING = 6
-const LIGHT_COLOR = '#ffe8b0'
+const TUBE_COLOR  = '#c8d4ee'  // cool fluorescent blue-white
+const LIGHT_COLOR = '#d8e4ff'
 
 export function LightingRig({ length }) {
   const count = Math.ceil(length / STRIP_SPACING)
-
   return (
     <>
-      <ambientLight intensity={0.04} />
+      <ambientLight intensity={0.04} color="#b8c4dc" />
       {Array.from({ length: count }, (_, i) => {
         const z = -(i * STRIP_SPACING + STRIP_SPACING * 0.5)
+        const dimmed = i % 7 === 4   // one in seven fixtures is aging/dim
         return (
           <group key={i} position={[0, SCENE.TUNNEL_HEIGHT - 0.05, z]}>
-            {/* Visible emissive tube */}
+            {/* Fluorescent tube */}
             <mesh>
-              <boxGeometry args={[SCENE.TUNNEL_WIDTH * 0.7, 0.06, 0.18]} />
+              <boxGeometry args={[SCENE.TUNNEL_WIDTH * 0.72, 0.04, 0.12]} />
               <meshStandardMaterial
-                color={LIGHT_COLOR}
-                emissive={LIGHT_COLOR}
-                emissiveIntensity={3}
+                color={TUBE_COLOR}
+                emissive={TUBE_COLOR}
+                emissiveIntensity={dimmed ? 1.2 : 3.5}
               />
             </mesh>
-            {/* Functional light */}
             <pointLight
               color={LIGHT_COLOR}
-              intensity={8}
-              distance={10}
+              intensity={dimmed ? 4 : 9}
+              distance={11}
               decay={2}
               position={[0, -0.2, 0]}
             />
