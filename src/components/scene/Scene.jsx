@@ -3,6 +3,7 @@ import { CameraRig } from './CameraRig'
 import { Hallway } from './environment/Hallway'
 import { IntroSign } from './environment/IntroSign'
 import { Staircase } from './environment/Staircase'
+import { Graffiti } from './environment/Graffiti'
 import { PosterWall } from './posters/PosterWall'
 import { SubwayMap } from './SubwayMap'
 import { projects } from '@/data/projects'
@@ -20,6 +21,7 @@ export function Scene() {
       <CameraRig onActiveProject={setActiveProjectIndex} />
       <Hallway length={tunnelLength} />
       <Staircase />
+      <Graffiti />
       <IntroSign />
       <PosterWall projects={projects} activeProjectIndex={activeProjectIndex} />
       <SubwayMap />
