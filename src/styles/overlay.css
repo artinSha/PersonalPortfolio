@@ -66,6 +66,43 @@
   background: rgba(255, 232, 176, 0.08);
 }
 
+/* ── Scroll Hint ────────────────────────────────── */
+.scroll-hint {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+}
+
+.scroll-hint--hidden {
+  opacity: 0;
+}
+
+.scroll-hint__text {
+  color: #ffe8b0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.scroll-hint__arrow {
+  color: #ffe8b0;
+  font-size: 1.2rem;
+  margin-top: 0.4rem;
+  animation: scroll-hint-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
 /* ── Loading Screen ─────────────────────────────── */
 .loading-screen {
   width: 200px;
