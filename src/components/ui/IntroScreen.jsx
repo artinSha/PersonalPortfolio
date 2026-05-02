@@ -45,7 +45,6 @@ function drawTileCanvas() {
 
 export function IntroScreen() {
   const ref = useRef(null)
-  const graffitiRef = useRef(null)
 
   useEffect(() => {
     const el = ref.current
@@ -54,27 +53,6 @@ export function IntroScreen() {
     const tileCanvas = drawTileCanvas()
     el.style.backgroundImage = `url(${tileCanvas.toDataURL()})`
     el.style.backgroundSize = '512px 512px'
-
-    // Draw graffiti onto a canvas using multiply so the background disappears
-    const graffitiCanvas = graffitiRef.current
-    if (graffitiCanvas) {
-      const W = 520, H = 300
-      graffitiCanvas.width = W
-      graffitiCanvas.height = H
-      const gCtx = graffitiCanvas.getContext('2d')
-
-      // Paint the tile pattern as the base so multiply has the right surface to blend against
-      const pattern = gCtx.createPattern(tileCanvas, 'repeat')
-      gCtx.fillStyle = pattern
-      gCtx.fillRect(0, 0, W, H)
-
-      const img = new Image()
-      img.onload = () => {
-        gCtx.globalCompositeOperation = 'multiply'
-        gCtx.drawImage(img, 0, 0, W, H)
-      }
-      img.src = '/assets/graffiti-intro.png'
-    }
 
     function onScroll() {
       el.style.transform = `translateY(-${window.scrollY}px)`
@@ -115,12 +93,6 @@ export function IntroScreen() {
           </div>
         </div>
       </div>
-
-      <canvas
-        ref={graffitiRef}
-        className="intro-screen__graffiti"
-        aria-hidden="true"
-      />
 
       <div className="intro-screen__wainscot" />
       <div className="intro-screen__baseboard" />
