@@ -39,7 +39,7 @@ function makeSignTexture() {
   ctx.textBaseline = 'middle'
   ctx.font = 'bold 78px Arial, sans-serif'
   if ('letterSpacing' in ctx) ctx.letterSpacing = '0px'
-  ctx.fillText('AS', BADGE_W / 2, H / 2)
+  ctx.fillText('ℹ️', BADGE_W / 2, H / 2)
 
   // Divider after badge
   ctx.fillStyle = '#777777'
@@ -64,17 +64,17 @@ function makeSignTexture() {
   ctx.fillStyle = '#ffffff'
   ctx.font = 'bold 50px Arial, sans-serif'
   if ('letterSpacing' in ctx) ctx.letterSpacing = '3px'
-  ctx.fillText('ARTIN SHAHPOURI', CONTENT_X, 72)
+  ctx.fillText('WELCOME', CONTENT_X, 72)
 
   ctx.fillStyle = '#cccccc'
   ctx.font = '27px Arial, sans-serif'
   if ('letterSpacing' in ctx) ctx.letterSpacing = '5px'
-  ctx.fillText('SOFTWARE ENGINEER', CONTENT_X, 112)
+  ctx.fillText('Personal Projects Ahead!', CONTENT_X, 112)
 
   ctx.fillStyle = '#888888'
   ctx.font = '20px Arial, sans-serif'
   if ('letterSpacing' in ctx) ctx.letterSpacing = '3px'
-  ctx.fillText('COMPUTING SCIENCE  ·  SFU', CONTENT_X, 148)
+  ctx.fillText('PLATFORM 1', CONTENT_X, 148)
 
   return new THREE.CanvasTexture(canvas)
 }

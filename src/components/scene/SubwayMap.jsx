@@ -8,8 +8,8 @@ const MAP_H  = MAP_W / 1.47   // ≈ 1.5
 const FRAME  = 0.06
 
 // Right wall, in the entry buffer before any project posters
-const WALL_X = SCENE.TUNNEL_WIDTH / 2 - SCENE.POSTER_WALL_OFFSET
-const MAP_Z  = -2.5
+const WALL_X = SCENE.TUNNEL_WIDTH / 2 - SCENE.POSTER_WALL_OFFSET 
+const MAP_Z  = -2.0
 const MAP_Y  = SCENE.CAMERA_Y + 0.4   // just above eye level center
 
 function MapMesh() {
