@@ -121,3 +121,209 @@
   letter-spacing: 0.2em;
   color: #666;
 }
+
+/* ── Intro Screen ───────────────────────────────── */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: #d6d2c6; /* tile fallback while canvas paints */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 160px; /* clear wainscot + baseboard + scroll guide */
+  font-family: 'Courier New', Courier, monospace;
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* Fluorescent tube glow from above — matches LightingRig cool blue-white */
+.intro-screen__ceiling-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(ellipse at 50% -5%, rgba(200, 212, 238, 0.28) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Dark posted-notice panel floating on the tile wall */
+.intro-screen__panel {
+  position: relative;
+  background: rgba(8, 8, 14, 0.88);
+  border: 1px solid rgba(255, 232, 176, 0.18);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.55);
+  padding: 3rem 3.5rem;
+  max-width: 900px;
+  width: calc(100% - 3rem);
+}
+
+.intro-screen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .intro-screen__content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+}
+
+.intro-screen__photo-wrap {
+  flex-shrink: 0;
+}
+
+.intro-screen__photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 232, 176, 0.35);
+  object-fit: cover;
+  display: block;
+}
+
+.intro-screen__text {
+  max-width: 480px;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .intro-screen__text {
+    text-align: left;
+  }
+}
+
+.intro-screen__name {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffe8b0;
+  margin-bottom: 0.5rem;
+}
+
+.intro-screen__role {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 0.25rem;
+}
+
+.intro-screen__edu {
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.intro-screen__bio {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #c0c0c0;
+  margin: 0 0 1.75rem;
+}
+
+.intro-screen__links {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .intro-screen__links {
+    justify-content: flex-start;
+  }
+}
+
+.intro-screen__link {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(255, 232, 176, 0.35);
+  color: #ffe8b0;
+  transition: background 0.2s;
+}
+
+.intro-screen__link:hover {
+  background: rgba(255, 232, 176, 0.1);
+}
+
+/* Graffiti tag — bottom-left, pre-composited onto tile via canvas multiply */
+.intro-screen__graffiti {
+  position: absolute;
+  bottom: 60px;
+  left: 2%;
+  width: 420px;
+  pointer-events: none;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+}
+
+/* Hunter-green wainscot band — matches WallTiles BAND_COLOR */
+.intro-screen__wainscot {
+  position: absolute;
+  bottom: 64px;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: #2a5c30;
+}
+
+/* Near-black baseboard — matches WallTiles BASE_COLOR */
+.intro-screen__baseboard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #0c0a08;
+}
+
+/* ── Scroll guide ───────────────────────────────── */
+.intro-screen__scroll-guide {
+  position: absolute;
+  bottom: 112px; /* sits above the wainscot (64 + 36 + 12px gap) */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+  animation: intro-guide-fade-in 1s ease 0.6s both;
+  background: rgba(8, 8, 14, 0.72);
+  padding: 0.55rem 1.25rem 0.65rem;
+  white-space: nowrap;
+}
+
+.intro-screen__scroll-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffe8b0;
+  margin-bottom: 0.35rem;
+}
+
+.intro-screen__scroll-arrow {
+  color: #ffe8b0;
+  font-size: 1.1rem;
+  animation: intro-arrow-bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes intro-arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
+@keyframes intro-guide-fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
