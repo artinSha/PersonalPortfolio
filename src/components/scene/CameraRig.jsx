@@ -1,4 +1,5 @@
 import { useRef, useMemo } from 'react'
+import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { buildKeyframes, evaluateCamera } from '@/utils/cameraKeyframes'
 import { projects } from '@/data/projects'
@@ -8,15 +9,15 @@ import { scrollState } from '@/hooks/useWindowScroll'
 export function CameraRig({ onActiveProject }) {
   const keyframes = useMemo(() => buildKeyframes(projects, SCENE), [])
   const lastActive = useRef(null)
+  const _pos = useRef(new THREE.Vector3())
+  const _quat = useRef(new THREE.Quaternion())
 
   useFrame((state) => {
-    const result = evaluateCamera(scrollState.offset, keyframes)
-    if (!result) return
+    const activeProjectIndex = evaluateCamera(scrollState.offset, keyframes, _pos.current, _quat.current)
+    if (activeProjectIndex === false) return
 
-    const { position, quaternion, activeProjectIndex } = result
-
-    if (position) state.camera.position.lerp(position, SCENE.LERP_POSITION)
-    if (quaternion) state.camera.quaternion.slerp(quaternion, SCENE.LERP_ROTATION)
+    state.camera.position.lerp(_pos.current, SCENE.LERP_POSITION)
+    state.camera.quaternion.slerp(_quat.current, SCENE.LERP_ROTATION)
 
     if (activeProjectIndex !== lastActive.current) {
       lastActive.current = activeProjectIndex

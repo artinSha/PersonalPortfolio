@@ -108,8 +108,8 @@ export function buildKeyframes(projects, SCENE) {
   return keyframes
 }
 
-export function evaluateCamera(scrollOffset, keyframes) {
-  if (!keyframes.length) return null
+export function evaluateCamera(scrollOffset, keyframes, position, quaternion) {
+  if (!keyframes.length) return false
 
   const kf = keyframes.find(
     k => scrollOffset >= k.scrollStart && scrollOffset <= k.scrollEnd
@@ -120,8 +120,6 @@ export function evaluateCamera(scrollOffset, keyframes) {
     : (scrollOffset - kf.scrollStart) / (kf.scrollEnd - kf.scrollStart)
   const t = easeInOutCubic(Math.min(1, Math.max(0, raw)))
 
-  const position = new THREE.Vector3()
-  const quaternion = new THREE.Quaternion()
   let activeProjectIndex = null
 
   switch (kf.type) {
@@ -152,7 +150,7 @@ export function evaluateCamera(scrollOffset, keyframes) {
       break
   }
 
-  return { position, quaternion, activeProjectIndex }
+  return activeProjectIndex
 }
 
 function lerp(a, b, t) { return a + (b - a) * t }
