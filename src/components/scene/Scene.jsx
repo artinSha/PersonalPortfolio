@@ -5,6 +5,8 @@ import { IntroSign } from './environment/IntroSign'
 import { Staircase } from './environment/Staircase'
 import { Graffiti } from './environment/Graffiti'
 import { PosterWall } from './posters/PosterWall'
+import { WaterAd } from './environment/WaterAd'
+import { TapAd } from './environment/TapAd'
 import { SubwayMap } from './SubwayMap'
 import { projects } from '@/data/projects'
 import { SCENE } from '@/config/scene'
@@ -25,6 +27,8 @@ export function Scene() {
       <IntroSign />
       <PosterWall projects={projects} activeProjectIndex={activeProjectIndex} />
       <SubwayMap />
+      <WaterAd />
+      <TapAd />
     </>
   )
 }
