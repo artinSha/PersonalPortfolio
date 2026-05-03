@@ -24,9 +24,15 @@ const INTRO_Z      = -(BUFFER_START + 0 * SEGMENT_LENGTH + SEGMENT_LENGTH * 0.5)
 const INTRO_W = 2.6
 const INTRO_H = INTRO_W / (501 / 200)
 
+// King graffiti — same wall as water-ad (left wall), just before the pillar at Z = -21
+const KING_Z = -(BUFFER_START + 2 * SEGMENT_LENGTH) + 1
+const KING_W = 1.5
+const KING_H = KING_W * (3 / 4)
+
 function GraffitiMesh() {
   const texture      = useTexture('/assets/graffiti.png')
   const introTexture = useTexture('/assets/graffiti_intro.png')
+  const kingTexture  = useTexture('/assets/king-graffiti.png')
 
   return (
     <>
@@ -44,6 +50,16 @@ function GraffitiMesh() {
         <planeGeometry args={[INTRO_W, INTRO_H]} />
         <meshBasicMaterial
           map={introTexture}
+          transparent
+          blending={THREE.MultiplyBlending}
+          depthWrite={false}
+        />
+      </mesh>
+
+      <mesh position={[WALL_X, 1.5, KING_Z]} rotation={[0, ROT_Y, 0]}>
+        <planeGeometry args={[KING_W, KING_H]} />
+        <meshBasicMaterial
+          map={kingTexture}
           transparent
           blending={THREE.MultiplyBlending}
           depthWrite={false}
