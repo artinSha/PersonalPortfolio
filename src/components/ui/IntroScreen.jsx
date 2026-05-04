@@ -3,6 +3,7 @@ import '@/styles/overlay.css'
 
 const GITHUB_URL = 'https://github.com/artinSha'
 const LINKEDIN_URL = 'https://linkedin.com/in/artinshahpouri'
+const RESUME_URL = 'https://drive.google.com/file/d/1Us3G7y2Ip_ycsohrhrLUC4D7H3gEFWMO/view?usp=drive_link'
 const BIO = `Hello! I'm a CS student at Simon Fraser University and a Vancouver-based Software Developer.`
 
 function drawTileCanvas() {
@@ -88,6 +89,9 @@ export function IntroScreen() {
               </a>
               <a className="intro-screen__link" href={LINKEDIN_URL} target="_blank" rel="noreferrer">
                 LinkedIn
+              </a>
+              <a className="intro-screen__link" href={RESUME_URL} target="_blank" rel="noreferrer">
+                Resume
               </a>
             </div>
           </div>
