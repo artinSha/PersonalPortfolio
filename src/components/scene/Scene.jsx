@@ -6,6 +6,7 @@ import { Staircase } from './environment/Staircase'
 import { Graffiti } from './environment/Graffiti'
 import { PosterWall } from './posters/PosterWall'
 import { WallAds } from './environment/WallAds'
+import { TunnelEnd } from './environment/TunnelEnd'
 import { SubwayMap } from './SubwayMap'
 import { projects } from '@/data/projects'
 import { SCENE } from '@/config/scene'
@@ -27,7 +28,8 @@ export function Scene() {
       <PosterWall projects={projects} activeProjectIndex={activeProjectIndex} />
       <SubwayMap />
       <WallAds />
-      <pointLight position={[0, 3.9, -24]} color="#d8e4ff" intensity={7} distance={11} decay={2} />
+      {/* <pointLight position={[0, 3.9, -24]} color="#d8e4ff" intensity={7} distance={11} decay={2} /> */}
+      <TunnelEnd />
     </>
   )
 }
