@@ -27,6 +27,7 @@ export function Scene() {
       <PosterWall projects={projects} activeProjectIndex={activeProjectIndex} />
       <SubwayMap />
       <WallAds />
+      <pointLight position={[0, 3.9, -24]} color="#d8e4ff" intensity={7} distance={11} decay={2} />
     </>
   )
 }

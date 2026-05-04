@@ -18,7 +18,7 @@ export function Poster({ position, rotationY, project, isActive }) {
       </mesh>
       {/* Poster surface */}
       <mesh geometry={SURFACE_GEO} position={[0, 0, 0.03]}>
-        <meshStandardMaterial map={texture} roughness={0.8} />
+        <meshStandardMaterial map={texture} emissiveMap={texture} emissive="white" emissiveIntensity={0.0001} roughness={0.8} />
       </mesh>
       {/* HTML overlay — only mounted when active */}
       {isActive && (

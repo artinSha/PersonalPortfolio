@@ -16,7 +16,7 @@ export const projects = [
     image: '/assets/projects/hand-synthesizer.png',
     github: 'https://github.com/artinSha/hand-synthesizer',
     live: null,
-    tags: ['React', 'Node.js'],
+    tags: ['Python', 'OpenCV', 'MediaPipe'],
     wall: 'right',
   },
   {
@@ -26,7 +26,7 @@ export const projects = [
     image: '/assets/projects/speakfast.png',
     github: 'https://github.com/artinSha/SpeakFastApp-Frontend',
     live: null,
-    tags: ['Python', 'FastAPI'],
+    tags: ['React Native', 'Flask', 'Google Cloud STT', 'Gemini'],
     wall: 'left',
   },
 ]
