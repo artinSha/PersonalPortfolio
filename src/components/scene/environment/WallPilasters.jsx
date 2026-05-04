@@ -16,10 +16,7 @@ export function WallPilasters() {
   const { TUNNEL_WIDTH, TUNNEL_HEIGHT, BUFFER_START, SEGMENT_LENGTH } = SCENE
   const n = projects.length
 
-  const zPositions = [
-    0,
-    ...Array.from({ length: n + 1 }, (_, i) => -(BUFFER_START + i * SEGMENT_LENGTH)),
-  ]
+  const zPositions = Array.from({ length: n + 1 }, (_, i) => -(BUFFER_START + i * SEGMENT_LENGTH))
 
   const sides = [
     -(TUNNEL_WIDTH / 2) + PILLAR_RADIUS * 0.5,
