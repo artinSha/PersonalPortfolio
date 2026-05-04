@@ -8,6 +8,7 @@ import { PosterWall } from './posters/PosterWall'
 import { WaterAd } from './environment/WaterAd'
 import { MetroAd } from './environment/MetroAd'
 import { TapAd } from './environment/TapAd'
+import { DistanceAd } from './environment/DistanceAd'
 import { SubwayMap } from './SubwayMap'
 import { projects } from '@/data/projects'
 import { SCENE } from '@/config/scene'
@@ -31,6 +32,7 @@ export function Scene() {
       <WaterAd />
       <MetroAd />
       <TapAd />
+      <DistanceAd />
     </>
   )
 }
