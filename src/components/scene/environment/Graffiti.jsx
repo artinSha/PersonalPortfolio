@@ -30,9 +30,9 @@ const KING_W = 1.5
 const KING_H = KING_W * (3 / 4)
 
 function GraffitiMesh() {
-  const texture      = useTexture('/assets/graffiti.png')
-  const introTexture = useTexture('/assets/graffiti_intro.png')
-  const kingTexture  = useTexture('/assets/king-graffiti.png')
+  const texture      = useTexture('/assets/reduced/graffiti.jpg')
+  const introTexture = useTexture('/assets/reduced/graffiti_intro.jpg')
+  const kingTexture  = useTexture('/assets/reduced/king-graffiti.jpg')
 
   return (
     <>

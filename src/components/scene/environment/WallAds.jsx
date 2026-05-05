@@ -16,10 +16,10 @@ const lastIdx = projects.length - 1
 const segMid  = BUFFER_START + SEGMENT_LENGTH * 0.5
 
 const ADS = [
-  { src: '/assets/metro-ad.png',    ...opposingWall(0),       z: -segMid - 1   },
-  { src: '/assets/water-ad.png',    ...opposingWall(1),       z: -segMid - 6.5 },
-  { src: '/assets/tap-ad.png',      ...opposingWall(lastIdx), z: -(BUFFER_START + lastIdx * SEGMENT_LENGTH + SEGMENT_LENGTH * 0.5) + 2 },
-  { src: '/assets/distance-ad.png', ...opposingWall(lastIdx), z: -25.5 },
+  { src: '/assets/reduced/metro-ad.jpg',    ...opposingWall(0),       z: -segMid - 1   },
+  { src: '/assets/reduced/water-ad.jpg',    ...opposingWall(1),       z: -segMid - 6.5 },
+  { src: '/assets/reduced/tap-ad.jpg',      ...opposingWall(lastIdx), z: -(BUFFER_START + lastIdx * SEGMENT_LENGTH + SEGMENT_LENGTH * 0.5) + 2 },
+  { src: '/assets/reduced/distance-ad.jpg', ...opposingWall(lastIdx), z: -25.5 },
 ]
 
 export function WallAds() {

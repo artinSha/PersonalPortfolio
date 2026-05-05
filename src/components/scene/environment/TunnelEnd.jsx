@@ -8,7 +8,7 @@ const { TUNNEL_WIDTH, TUNNEL_HEIGHT, BUFFER_START, SEGMENT_LENGTH, BUFFER_END } 
 const END_Z = -(BUFFER_START + projects.length * SEGMENT_LENGTH + BUFFER_END)
 
 function TrainMesh() {
-  const texture = useTexture('/assets/subway-train.png')
+  const texture = useTexture('/assets/reduced/subway-train.jpg')
   return (
     <>
       <mesh position={[0, TUNNEL_HEIGHT / 2, END_Z]}>

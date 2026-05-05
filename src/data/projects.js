@@ -1,15 +1,5 @@
 export const projects = [
   {
-    id: 'subway-portfolio',
-    title: 'Subway Portfolio',
-    description: 'This very site! A 3D subway station built with React and Three.js where each poster is a project.',
-    image: '/assets/projects/subway-portfolio.png',
-    github: 'https://github.com/artinSha/PersonalPortfolio',
-    live: null,
-    tags: ['React', 'Three.js', 'R3F'],
-    wall: 'left',
-  },
-  {
     id: 'project-two',
     title: 'Hand Synthesizer',
     description: 'Hand gesture musical synthesizer using MediaPipe and OpenCV.',
@@ -17,7 +7,7 @@ export const projects = [
     github: 'https://github.com/artinSha/hand-synthesizer',
     live: null,
     tags: ['Python', 'OpenCV', 'MediaPipe'],
-    wall: 'right',
+    wall: 'left',
   },
   {
     id: 'project-three',
@@ -27,6 +17,16 @@ export const projects = [
     github: 'https://github.com/artinSha/SpeakFastApp-Frontend',
     live: null,
     tags: ['React Native', 'Flask', 'Google Cloud STT', 'Gemini'],
+    wall: 'right',
+  },
+    {
+    id: 'subway-portfolio',
+    title: 'Subway Portfolio',
+    description: 'This very site! A 3D subway station built with React and Three.js where each poster is a project.',
+    image: '/assets/projects/subway-portfolio.png',
+    github: 'https://github.com/artinSha/PersonalPortfolio',
+    live: null,
+    tags: ['React', 'Three.js', 'R3F'],
     wall: 'left',
   },
 ]

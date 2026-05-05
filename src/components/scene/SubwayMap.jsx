@@ -13,7 +13,7 @@ const MAP_Z  = -2.0
 const MAP_Y  = SCENE.CAMERA_Y + 0.4   // just above eye level center
 
 function MapMesh() {
-  const texture = useTexture('/assets/subway-map.png')
+  const texture = useTexture('/assets/reduced/subway-map.jpg')
   return (
     <group position={[WALL_X, MAP_Y, MAP_Z]} rotation={[0, -Math.PI / 2, 0]}>
       {/* Frame */}
