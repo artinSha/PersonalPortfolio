@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { Scene } from './components/scene/Scene'
 import { LoadingScreen } from './components/ui/LoadingScreen'
 import { IntroScreen } from './components/ui/IntroScreen'
+import { ScrollHint } from './components/ui/ScrollHint'
 import { projects } from './data/projects'
 import { useWindowScrollSetup } from './hooks/useWindowScroll'
 
@@ -25,6 +26,7 @@ export default function App() {
         </Suspense>
       </Canvas>
       <IntroScreen />
+      <ScrollHint />
     </>
   )
 }

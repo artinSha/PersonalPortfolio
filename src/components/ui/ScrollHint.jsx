@@ -2,24 +2,22 @@ import { useState, useEffect } from 'react'
 import '@/styles/overlay.css'
 
 export function ScrollHint() {
-  const [visible, setVisible] = useState(true)
-  const [mounted, setMounted] = useState(true)
+  const [inTunnel, setInTunnel] = useState(false)
 
   useEffect(() => {
     function onScroll() {
-      setVisible(false)
-      setTimeout(() => setMounted(false), 300)
+      setInTunnel(window.scrollY > window.innerHeight * 0.9)
     }
-    window.addEventListener('scroll', onScroll, { once: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  if (!mounted) return null
+  if (!inTunnel) return null
 
   return (
-    <div className={`scroll-hint${visible ? '' : ' scroll-hint--hidden'}`}>
-      <div className="scroll-hint__text">Scroll to walk down the hallway</div>
+    <div className="scroll-hint">
       <div className="scroll-hint__arrow">↓</div>
+      <div className="scroll-hint__text">Scroll to walk</div>
     </div>
   )
 }
