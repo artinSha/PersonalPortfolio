@@ -5,6 +5,10 @@ html, body {
   background: #000;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 #root {
   width: 100%;
 }
