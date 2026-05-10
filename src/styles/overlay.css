@@ -1,6 +1,6 @@
 /* ── Project Overlay ────────────────────────────── */
 .project-overlay {
-  width: 340px;
+  width: min(340px, calc(100vw - 2rem));
   pointer-events: none;
 }
 

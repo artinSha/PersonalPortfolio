@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { SCENE } from '@/config/scene'
 import { Poster } from './Poster'
 
-export function PosterWall({ projects, activeProjectIndex }) {
+export function PosterWall({ projects }) {
   const { TUNNEL_WIDTH, BUFFER_START, SEGMENT_LENGTH, POSTER_Y, POSTER_WALL_OFFSET } = SCENE
 
   return (
@@ -21,7 +21,6 @@ export function PosterWall({ projects, activeProjectIndex }) {
               position={[x, POSTER_Y, z]}
               rotationY={rotationY}
               project={project}
-              isActive={activeProjectIndex === i}
             />
           </Suspense>
         )
